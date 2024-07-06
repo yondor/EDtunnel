@@ -6,7 +6,8 @@ import { connect } from "cloudflare:sockets";
 // [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
 let userID = "b35b9658-5c62-4f1a-8030-d0649f69bc3f";
 
-const proxyIPs = ["cdn.xn--b6gac.eu.org","workers.cloudflare.cyou", "bestproxy.onecf.eu.org", "cdn-all.xn--b6gac.eu.org"]; //workers.cloudflare.cyou bestproxy.onecf.eu.org cdn-all.xn--b6gac.eu.org cdn.xn--b6gac.eu.org
+//const proxyIPs = ["cdn.xn--b6gac.eu.org","workers.cloudflare.cyou", "bestproxy.onecf.eu.org", "cdn-all.xn--b6gac.eu.org"]; //workers.cloudflare.cyou bestproxy.onecf.eu.org cdn-all.xn--b6gac.eu.org cdn.xn--b6gac.eu.org
+const proxyIPs = ["cdn.xn--b6gac.eu.org"];
 const cn_hostnames = ['www.bing.com','www.baidu.com'];
 
 let proxyIP = proxyIPs[Math.floor(Math.random() * proxyIPs.length)];
@@ -682,8 +683,8 @@ async function handleUDPOutBound(webSocket, vlessResponseHeader, log) {
  * @returns {string}
  */
 function getVLESSConfig(userID, hostName) {
-  const wvlessws = `vless://${userID}\u0040www.visa.com.sg:8880?encryption=none&security=none&type=ws&host=${hostName}&path=%2F%3Fed%3D2560#${hostName}`;
-  const pvlesswstls = `vless://${userID}\u0040www.visa.com.sg:8443?encryption=none&security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2560#${hostName}`;
+  const wvlessws = `vless://${userID}\u0040www.speedtest.net:8880?encryption=none&security=none&type=ws&host=${hostName}&path=%2F%3Fed%3D2560#${hostName}`;
+  const pvlesswstls = `vless://${userID}\u0040www.speedtest.net:8443?encryption=none&security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=%2F%3Fed%3D2560#${hostName}`;
   const note = `正在使用的ProxyIP：${proxyIP}`;
   const noteshow = note.replace(/\n/g, '<br>');
   const displayHtml = `
